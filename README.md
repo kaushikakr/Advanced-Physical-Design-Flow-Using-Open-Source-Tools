@@ -1,8 +1,6 @@
 ### Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
 #### Familiarity to open-lane framework
 
-### Lab work:
-
 *1. SKY130_D1_SK3 - Get familiar to open-source EDA tools*
 
 * Design prep
@@ -10,7 +8,7 @@
 * Open Lane git results
 * Characterising Synthesis results
 
-
+### Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
 *2.1. SKY130_D2_SK1 - Chip Floor planning considerations*
 
 * L6. Steps to run floorplan using openlane
@@ -22,6 +20,7 @@
 * L5. Congestion aware placement using RePlAce
 
 
+### Sky130 Day 3 - Design library cell using Magic Layout and ngspice characterization
 *3.1. SKY130_D3_SK1 - Labs for CMOS inverter ngspice simulations*
 
 * L0. IO placer revision
@@ -41,6 +40,8 @@
 * L7. To implement poly resistor spacing to diff and tap
 * L8. To describe DRC error as geometrical construct
 
+
+### Sky130 Day 4 - Pre-layout timing analysis and importance of good clock tree
 *4.1. SKY130_D4_SK1 - Timing modelling using delay tables*
 * L1. To convert grid info to track info
 * L2. To convert magic layout to std cell LEF
@@ -61,6 +62,8 @@
 * L4. To execute OpenSTA with right timing libraries and CTS assignment
 * L5. To observe impact of bigger CTS buffers on setup and hold timing
 
+
+### Sky130 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA
 *5.2. SKY130_D5_SK2 - Power Distribution Network and routing*
 * L1. To build power distribution network
 * L2. Steps from power straps to std cel power
