@@ -3,5 +3,5 @@
 This is a new readme file
 
 * This is an example.
-* MArkdown is fast.
+* Markdown is fast.
 * pretty cool.
