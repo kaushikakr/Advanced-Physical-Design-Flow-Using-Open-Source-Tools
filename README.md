@@ -3,7 +3,7 @@
 
 ### Lab work:
 
-*1.SKY130_D1_SK3 - Get familiar to open-source EDA tools*
+*1. SKY130_D1_SK3 - Get familiar to open-source EDA tools*
 
 * Design prep
 * Run Synthesis
@@ -31,7 +31,7 @@
 * L8. Lab intro to Sky130 basic layers layout & LEF using inverter
 * L9. Lab steps to create std layout & extract spice netlist
 
-*3.3 SKY130_D3_SK3 - Sky130 Tech File Labs*
+*3.3. SKY130_D3_SK3 - Sky130 Tech File Labs*
 * L1. To create final SPICE deck using Sky130 tech
 * L2. To characterize inverter using sky130 model files
 * L3. To introduce Magic tool options and DRC rules
@@ -63,7 +63,7 @@
 
 *5.2. SKY130_D5_SK2 - Power Distribution Network and routing*
 * L1. To build power distribution network
-* L2. Steps from power stra[ps to std cel power
+* L2. Steps from power straps to std cel power
 * L3. Basics of global and detail routing and configure TritonRoute
 
 *5.3. SKY130_D5_SK3 - TritonRoute Features*
