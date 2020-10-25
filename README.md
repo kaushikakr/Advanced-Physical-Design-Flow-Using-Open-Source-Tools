@@ -1,7 +1,7 @@
-###Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
-####Familiarity to open-lane framework
+### Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
+#### Familiarity to open-lane framework
 
-###Lab work:
+### Lab work:
 
 *1.SKY130_D1_SK3 - Get familiar to open-source EDA tools*
 
