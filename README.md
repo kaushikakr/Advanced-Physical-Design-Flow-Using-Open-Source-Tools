@@ -77,9 +77,21 @@ will run the yosys synthesis as well as the abc.
 
 ![Test Image 1.3.3.2](IMAGES/1.3.3.2.png)
 
+So now the STA, synthesis and abc run are done.
 
 * L4. Open Lane git results
+
+*https://github.com/efabless/openlane.git*
+
 * L5. Characterising Synthesis results
+
+We can find the report of chip area, cell count, etc.
+
+In the runs, we see the updated files in synthesis folder as we are done with the synthesis process. This will have the synthesized netlist /\*.v with all the mappings done by abc.
+
+To check the design stats, it's in the *reports/synthesis/yosys_2.stat.rpt* 
+
+To check pre-layout timing report, it's in the *reports/synthesis/opensta_main.timing.rpt* 
 
 
 
