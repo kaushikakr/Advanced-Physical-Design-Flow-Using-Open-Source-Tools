@@ -6,21 +6,26 @@
 * L1. OpenLANE directory structure
 Desktop/work/tools/open_lane_working_dir/
 
-image1.3.1
+// ![Test Image 1.3.1](IMAGES/image1.3.1.png)
 
 inside pdk folder, 
 skywater-pdk has timing libraries, LEF file, TECH lib, cell LEF
 open_pdk - Silicon foundry file are made for commercial EDA tools, Open pdk helps to make the pdk compatible with open EDA tools. They are a set of scripts and files to make it compatible, like magic, NETgen, etc tools.
 
-image1.3.1.2
+// ![Test Image 1.3.1.2](IMAGES/image1.3.1.2.png)
 
 sky130A - made compatibe for open source env. sky130A is open source variants. 
 
 sky130A has libs.ref(timing, LEF, tech LEF- specific to the process) and libs.tech(specific to tool)
 
+![Image 1.3.1.3](IMAGES/1.3.1.3_libs_ref.png)
+![Image 1.3.1.4](IMAGES/1.3.1.4_libs_tech.png)
+
 we work on sky130_fd_sc_hd(processname_foundryname_stdcell_variantofPDK).
 
 libs.ref/sky130_fd_sc_hd has techlef- layer info; mag file, lef, lib [image1.3.1.5]- timing files of all process corners. just LEF is cell LEF, tech LEF(tlef) is technology LEF.
+
+![Image 1.3.1.5](IMAGES/1.3.1.5.png)
 
 Inside openLANEworkdir, where we are working on. Invoking openLANE tool from this dir. Desktop/work/tools/open_lane_working_dir/openlane
 
