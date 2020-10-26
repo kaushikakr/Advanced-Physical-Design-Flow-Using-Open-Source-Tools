@@ -27,7 +27,7 @@
 * L0. IO placer revision
 * L5. Lab steps to git clone vsdstdcelldesign
 
-* 3.2. SKY130_D3_SK2 - Inception of Layout – CMOS fabrication process*
+*3.2. SKY130_D3_SK2 - Inception of Layout – CMOS fabrication process*
 * L8. Lab intro to Sky130 basic layers layout & LEF using inverter
 * L9. Lab steps to create std layout & extract spice netlist
 
