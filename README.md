@@ -3,8 +3,64 @@
 
 
 *1.3. SKY130_D1_SK3 - Get familiar to open-source EDA tools*
+* L1. OpenLANE directory structure
+Desktop/work/tools/open_lane_working_dir/
+
+image1.3.1
+inside pdk folder, 
+skywater-pdk has timing libraries, LEF file, TECH lib, cell LEF
+open_pdk - Silicon foundry file are made for commercial EDA tools, Open pdk helps to make the pdk compatible with open EDA tools. They are a set of scripts and files to make it compatible, like magic, NETgen, etc tools.
+image1.3.1.2
+sky130A - made compatibe for open source env. sky130A is open source variants. 
+sky130A has libs.ref(timing, LEF, tech LEF- specific to the process) and libs.tech(specific to tool)
+we work on sky130_fd_sc_hd(processname_foundryname_stdcell_variantofPDK).
+libs.ref/sky130_fd_sc_hd has techlef- layer info; mag file, lef, lib [image1.3.1.5]- timing files of all process corners. just LEF is cell LEF, tech LEF(tlef) is technology LEF.
+
+Inside openLANEworkdir, where we are working on. Invoking openLANE tool from this dir. Desktop/work/tools/open_lane_working_dir/openlane
+
 * L2. Design prep
+
+./flow.tcl -interactive(for step by step flow run)
+
+To import all the packages required to run the flow: 
+%package require openlane 0.9
+
+Inside openlane/designs - there are many designs built into openlane. 
+We are doing for picorv32a: src, sky130a_sky130_fd_sc_hd_config.tcl
+
+src file - verilog file of rtl netlist & sdc info.
+config.tcl[image1.3.2.1] - bypassed any configurations that are set in default. 
+
+Whwn we run our custom design, sky130a_sky130_fd_sc_hd_config.tcl won't be there. 
+But we need to create config.tcl file.
+
+order of precedence(priority order), default value set by open lane < config.tcl < sky130a_sky130_fd_sc_hd_config.tcl(optional file)
+
+
+
 * L3. Run Synthesis
+
+%prep -design <design_name>
+here, %prep -design picorv32a
+[image1.3.3.1]
+
+The new **runs** directory gets created in *openlane/designs/picrorv32a*.
+
+Inside runs/timestamp/, tmp file has 
+
+In the mergerd.lef file, we have tlef info(layer, wire, vias), cell level lef info(macro).
+
+Inside runs/timestamp, we have a config.tcl. In the ENV: It has pdk, lef info, merged.lef, tracks info, tlef info, synthesis takes it's library info from pdks/sky130A/libs.ref/sky130A_fd_sc_hd/lib/file.lib, MIN and MAX libraries.
+
+In open lane, changes can be made to the config file on the fly. 
+Eg: Core utilisation change can be done.
+
+%run_synthesis
+
+will run the yosys synthesis as well as the abc.
+
+
+
 * L4. Open Lane git results
 * L5. Characterising Synthesis results
 
