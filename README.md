@@ -84,6 +84,8 @@ So now the STA, synthesis and abc run are done.
 
 *https://github.com/efabless/openlane.git*
 
+![Test Image 1](IMAGES/openLANEflow.png)
+
 * L5. Characterising Synthesis results
 
 We can find the report of chip area, cell count, etc.
@@ -96,7 +98,6 @@ To check pre-layout timing report, it's in the *reports/synthesis/opensta_main.t
 
 
 
-![Test Image 1](IMAGES/openLANEflow.png)
 
 ### Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
 *2.1. SKY130_D2_SK1 - Chip Floor planning considerations*
@@ -110,14 +111,14 @@ There are a lot of switches to adjust the flow direction.
 Switches:- 
 In openlane/configurations,
 when we open readme.md, 
-image 2.1.6.1-synthesis switch
-image 2.1.6.2-floorplan switch
-image 2.1.6.3
-image 2.1.6.4
+![synthesis_switch 2.1.6.1](IMAGES/2.1.6.1.png)
+![floorplan switch 2.1.6.2](IMAGES/2.1.6.2.png)
+![image 2.1.6.3](IMAGES/2.1.6.3.png)
+![image 2.1.6.4](IMAGES/2.1.6.4.png)
 
 These switches need to be set for floorplan and placement, can be found inside openlane/configurations as tcl scripts.
 
-image 2.1.6.5
+![image 2.1.6.5](IMAGES/2.1.6.5.png)
 
 From the above figure, which is a floorplan.tcl file, 
 for example: FP IO mode can set pin positioning equi-distant for 1 and random for 0.
@@ -141,13 +142,16 @@ image2.1.6.6-config.tcl
 * L7. Review floorplan files and steps to view floorplan 
 
 And to check the core utilization, go to config.tcl used in th current run.
-image2.1.7.1 - metal layer verification
-image2.1.7.2 - core utilization check
-image2.1.7.3 - sky130 config highest priority file
+![metal_layer_verification 2.1.7.1](IMAGES/2.1.7.1.png)
+![core_utilization_check 2.1.7.2](IMAGES/2.1.7.2.png)
+![sky130_config_highest_priority_file 2.1.7.3](IMAGES/2.1.7.3.png)
 
 
 In the current run, results/floorplan, open the def(design exchange format) file
-[image2.1.7.4] we can see the die area co-ordinates, cell orientation
+[image2.1.7.4] we can see the die area co-ordinates, cell orientation.
+
+![image 2.1.7.4](IMAGES/2.1.7.4.png)
+
 
 * L8. Review floorplan layout in Magic
 
@@ -155,7 +159,8 @@ To check the layout after floorplan, open magic using the command *magic -T open
 
 
 We can find the IO pads placed on the metal layers set in the config files. We also see the tap cells, which are meant to avoid the latch up conditions which occur in CMOS devices which are diagonally equi-distance which is configured. Floorplan doesn't consider standard cells but the layout has standard cells present but not placed orderly. 
-[image 2.1.8.1]
+
+![image 2.1.7.5](IMAGES/2.1.7.5.png)
 
 The power ground network is also created during floorplan.
 
@@ -171,13 +176,13 @@ There are 2 placements, one is global placement which is a coarse placement with
 
 First global placement is done. Reduction of half parameter wire length is the main focus. Iterations happen till the overflow converges.
 
-[image 2.2.5.1]
+![image 2.2.5.1](IMAGES/2.2.5.1.png)
 
 Here is where the std cell position gets fixed. def file is created in the current run placement folder.
 
 Then open magic with this latest def file.
 
-[image 2.2.5.2]
+![image 2.2.5.2](IMAGES/2.2.5.2.png)
 
 Floorplan ensures that there is decaps at the std cell boundaries, Tap cells and IO cells correctly placed. Placement ensures that std cells are perfectly placed in the std cell rows.
 
