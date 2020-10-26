@@ -33,6 +33,8 @@ Inside openLANEworkdir, where we are working on. Invoking openLANE tool from thi
 
 ./flow.tcl -interactive(for step by step flow run)
 
+./flow.tcl -design <design_name> for running the complete flow
+
 To import all the packages required to run the flow: 
 %package require openlane 0.9
 
@@ -73,10 +75,12 @@ Eg: Core utilisation change can be done.
 
 will run the yosys synthesis as well as the abc.
 
+![Test Image 1.3.3.7](IMAGES/1.3.3.7.png)
 
 
 * L4. Open Lane git results
 * L5. Characterising Synthesis results
+
 
 
 ![Test Image 1](IMAGES/openLANEflow.png)
