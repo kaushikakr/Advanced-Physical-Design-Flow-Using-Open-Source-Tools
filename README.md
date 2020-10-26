@@ -57,7 +57,7 @@ order of precedence(priority order), default value set by open lane < config.tcl
 
 here, %prep -design picorv32a
 
-[image1.3.3.1]
+![Image 1.3.3.1](IMAGES/1.3.3.1.png)
 
 The new **runs** directory gets created in *openlane/designs/picrorv32a*.
 
@@ -75,7 +75,7 @@ Eg: Core utilisation change can be done.
 
 will run the yosys synthesis as well as the abc.
 
-![Test Image 1.3.3.7](IMAGES/1.3.3.7.png)
+![Test Image 1.3.3.2](IMAGES/1.3.3.2.png)
 
 
 * L4. Open Lane git results
