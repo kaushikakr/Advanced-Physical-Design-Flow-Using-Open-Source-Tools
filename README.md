@@ -1,11 +1,15 @@
 ### Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
 #### Familiarity to open-lane framework
 
+
 *1.3. SKY130_D1_SK3 - Get familiar to open-source EDA tools*
 * L2. Design prep
 * L3. Run Synthesis
 * L4. Open Lane git results
 * L5. Characterising Synthesis results
+
+
+![Test Image 1](IMAGES/openLANEflow.png)
 
 ### Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
 *2.1. SKY130_D2_SK1 - Chip Floor planning considerations*
