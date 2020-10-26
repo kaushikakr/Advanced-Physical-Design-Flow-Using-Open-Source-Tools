@@ -63,7 +63,8 @@ The new **runs** directory gets created in *openlane/designs/picrorv32a*.
 
 Inside runs/timestamp/, tmp file has 
 
-In the mergerd.lef file, we have tlef info(layer, wire, vias), cell level lef info(macro).
+In the merged.lef file, we have tlef info(layer, wire, vias), cell level lef info(macro).
+merged lef has both the cell lef as well as tech lef.
 
 Inside runs/timestamp, we have a config.tcl. In the ENV: It has pdk, lef info, merged.lef, tracks info, tlef info, synthesis takes it's library info from pdks/sky130A/libs.ref/sky130A_fd_sc_hd/lib/file.lib, MIN and MAX libraries.
 
@@ -101,12 +102,84 @@ To check pre-layout timing report, it's in the *reports/synthesis/opensta_main.t
 *2.1. SKY130_D2_SK1 - Chip Floor planning considerations*
 
 * L6. Steps to run floorplan using openlane
-* L7. Review floorplan files and steps to view floorplan
+
+Setting the die area, core area, aspect ratio, utilization ratio, I/O cells, power distribution network.
+
+There are a lot of switches to adjust the flow direction. 
+
+Switches:- 
+In openlane/configurations,
+when we open readme.md, 
+image 2.1.6.1-synthesis switch
+image 2.1.6.2-floorplan switch
+image 2.1.6.3
+image 2.1.6.4
+
+These switches need to be set for floorplan and placement, can be found inside openlane/configurations as tcl scripts.
+
+image 2.1.6.5
+
+From the above figure, which is a floorplan.tcl file, 
+for example: FP IO mode can set pin positioning equi-distant for 1 and random for 0.
+
+These above config file which are the default settings have lowest priority.
+
+If we open the config.tcl from the designs/picorv32a, 
+we have the design file reference, clock period, clock net and port.
+The core utilization is set at 65%, the I/O vertical metal as layer 4 and horizontal one as layer 3.
+
+In the default floorplan.tcl file, the core utilization is 50%, VMETAL is 2, HMETAL is 3, whereas in config.tcl it is 65%.
+
+So, running the floorplan now.
+%run_floorplan
+
+To check the results, go to current runs folder, then to logs/floorplan and open ioPlacer.log to check the metal layers used.
+image2.1.6.5-floorplan.tcl
+image2.1.6.6-config.tcl
+
+
+* L7. Review floorplan files and steps to view floorplan 
+
+And to check the core utilization, go to config.tcl used in th current run.
+image2.1.7.1 - metal layer verification
+image2.1.7.2 - core utilization check
+image2.1.7.3 - sky130 config highest priority file
+
+
+In the current run, results/floorplan, open the def(design exchange format) file
+[image2.1.7.4] we can see the die area co-ordinates, cell orientation
+
 * L8. Review floorplan layout in Magic
+
+To check the layout after floorplan, open magic using the command *magic -T openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130.tech lef read tmp/merged.lef def read results/floorplan/\*floorplan.def &*
+
+
+We can find the IO pads placed on the metal layers set in the config files. We also see the tap cells, which are meant to avoid the latch up conditions which occur in CMOS devices which are diagonally equi-distance which is configured. Floorplan doesn't consider standard cells but the layout has standard cells present but not placed orderly. 
+[image 2.1.8.1]
+
+The power ground network is also created during floorplan.
 
 *2.2. SKY130_D2_SK2 - Library Binding and Placement*
 
 * L5. Congestion aware placement using RePlAce
+After floorplan, we are doing a placement which is congestion aware. Timing will be taken care in the later stages.
+
+There are 2 placements, one is global placement which is a coarse placement with no legalisations happening. Legalisation is placement of cells in the std cell rows and no overlaps among cells.
+
+
+%run_placement
+
+First global placement is done. Reduction of half parameter wire length is the main focus. Iterations happen till the overflow converges.
+
+[image 2.2.5.1]
+
+Here is where the std cell position gets fixed. def file is created in the current run placement folder.
+
+Then open magic with this latest def file.
+
+[image 2.2.5.2]
+
+Floorplan ensures that there is decaps at the std cell boundaries, Tap cells and IO cells correctly placed. Placement ensures that std cells are perfectly placed in the std cell rows.
 
 
 ### Sky130 Day 3 - Design library cell using Magic Layout and ngspice characterization
